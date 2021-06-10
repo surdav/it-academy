@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // M2 Nivell 2
+        // M2 Nivell 2a
 
         /*
         * Crea una aplicació que dibuixi una escala de nombres, sent cada línia nombres

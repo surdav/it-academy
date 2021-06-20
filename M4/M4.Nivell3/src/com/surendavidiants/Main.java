@@ -1,25 +1,29 @@
 package com.surendavidiants;
 
+import com.surendavidiants.excepciones.CantidadPlatosNoVacia;
+import com.surendavidiants.excepciones.NombrePlatoErroneo;
+import com.surendavidiants.excepciones.RevisioTipus;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-// M4 Nivell 2
+    public static void main(String[] args) throws RevisioTipus,
+            CantidadPlatosNoVacia, NombrePlatoErroneo
+    {
+// M4 Nivell 3
 
         /*
-         * Revisaràs l'exercici anterior modificant-lo per afegir noves excepcions més adients.
+         * Crea excepcions personalitzades amb fitxers nous e implementa-les al codi actual.
          *
-         * Modifica la revisió de la comanda de la següent manera: si un usuari introdueix un plat
-         * que no existeix, inmediatament executa una excepció general (new Exception) per avisar
-         * que el producte no existeix, per tant no s'ha d'afegir a la llista, però el bucle ha de
-         * seguir executant-se.
+         * - Has de crear Excepcions personalitzades per: Revisió de tipus, introducció de plats,
+         *   revisió de plats de la comanda.
          *
-         * Llança una excepció general (new Exception) a la pregunta Si/No per seguir demanant,
-         * en cas de que l'usuari no introdueixi cap de les paraules clau. S'ha de tornar a
-         * preguntar si es vol seguir demanant o no.
+         * - El text ha de ser personalitzat. No cal que propaguis l’excepció.
+         *
+         * - Rodeja amb un try/catch cada part que has de revisar amb una excepció.
          *
          * */
 
@@ -27,12 +31,26 @@ public class Main {
         String respuesta;
         int precioTotal = 0;
         Scanner input = new Scanner(System.in);
+        int cantidadPlatos;
 
         do {
             System.out.println("Cuantos platos quieres añadir a la carta?");
 
-            int cantidadPlatos = input.nextInt();
-            if (cantidadPlatos <= 0) return;
+            try {
+                    if(input.hasNextInt()) cantidadPlatos = input.nextInt();
+                    else throw new RevisioTipus();
+            } catch (RevisioTipus e) {
+                System.err.println("La entrada tiene que ser numérica");
+                return;
+            }
+
+            try {
+                if (cantidadPlatos <= 0) throw new CantidadPlatosNoVacia();
+            } catch (CantidadPlatosNoVacia e) {
+                System.err.println("La cantidad de platos escogidos no puede ser negativo o igual a 0!");
+                return;
+            }
+
             input.nextLine();
 
             System.out.println("Introduzca " + cantidadPlatos + " plato(s) con su(s) precio(s) correspondiente(s)");
@@ -91,12 +109,12 @@ public class Main {
                 // Aquí comprobamos si el plato introducido existe en el menú
                 try {
                     if (!preuPlat.containsKey(platoDeseado)) {
-                        throw new Exception("Tal plato no existe!");
+                        throw new NombrePlatoErroneo();
                     } else {
                         precioTotal += preuPlat.get(platoDeseado);
                         cantidadPlatosDeseados--;
                     }
-                } catch (Exception e) {
+                } catch (NombrePlatoErroneo e) {
                     System.err.println("¡OJO! Comprueba el nombre del plato y vuelve a escribirlo!");
                 }
             }

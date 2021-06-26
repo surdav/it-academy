@@ -38,14 +38,14 @@ public class Main {
 
             try {
                     if(input.hasNextInt()) cantidadPlatos = input.nextInt();
-                    else throw new RevisioTipus();
+                    else throw new RevisioTipus("La entrada tiene que ser numérica");
             } catch (RevisioTipus e) {
                 System.err.println("La entrada tiene que ser numérica");
                 return;
             }
 
             try {
-                if (cantidadPlatos <= 0) throw new CantidadPlatosNoVacia();
+                if (cantidadPlatos <= 0) throw new CantidadPlatosNoVacia("La cantidad de platos escogidos no puede ser negativo o igual a 0!");
             } catch (CantidadPlatosNoVacia e) {
                 System.err.println("La cantidad de platos escogidos no puede ser negativo o igual a 0!");
                 return;
@@ -109,7 +109,7 @@ public class Main {
                 // Aquí comprobamos si el plato introducido existe en el menú
                 try {
                     if (!preuPlat.containsKey(platoDeseado)) {
-                        throw new NombrePlatoErroneo();
+                        throw new NombrePlatoErroneo("El nombre del plato erroneo! Vuelve a escribirlo!");
                     } else {
                         precioTotal += preuPlat.get(platoDeseado);
                         cantidadPlatosDeseados--;

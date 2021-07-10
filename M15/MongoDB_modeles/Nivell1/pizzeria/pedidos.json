@@ -1,0 +1,20 @@
+[{
+  "_id": 1,
+  "cliente_id": 1,
+  "tienda_id": 1,
+  "fecha": "2020-05-03 15:25",
+  "tipo": "domicilio",
+  "precio": 49,
+  "fecha_entrega": "2020-05-03 15:55",
+  "repartidor": "maia",
+  "productos": [
+    {
+      "producto_id": 1,
+      "cantidad": 1
+    },
+    {
+      "producto_id": 2,
+      "cantidad": 2
+    }
+  ]
+}]

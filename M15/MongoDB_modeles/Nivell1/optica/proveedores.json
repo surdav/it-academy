@@ -1,0 +1,16 @@
+[{
+  "_id": 1,
+  "nombre": "gafotas",
+  "telefono": "777-999-333",
+  "fax": "93-554-8654",
+  "NIF": "45.612.312J",
+  "direccion": {
+    "calle": "provenza",
+    "numero": 123,
+    "piso": 2,
+    "puerta": "b",
+    "codPostal": "08015",
+    "ciudad": "barcelona",
+    "pais": "españa"
+  }
+}]

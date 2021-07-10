@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MongoDb" id="Project_23be" database="MongoDb" >
+	<schema name="pizzeria" >
+		<table name="clientes" >
+			<column name="_id" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="apellido" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="direccion" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="cp" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="localidad" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="provincia" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="telefono" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Fk_clientes_pedidos" virtual="y" to_schema="pizzeria" to_table="pedidos" >
+				<fk_column name="_id" pk="cliente_id" />
+			</fk>
+		</table>
+		<table name="pedidos" >
+			<column name="_id" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="cliente_id" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="tienda_id" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="fecha" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="tipo" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="precio" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="fecha_entrega" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="repartidor" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="productos" type="array[object]" length="800" decimal="0" jt="4999545" mandatory="y" >
+				<column name="producto_id" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+				<column name="cantidad" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			</column>
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="productos" >
+			<column name="_id" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="descripcion" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="categoria" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="imagen" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="precio" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Fk_productos_pedidos" virtual="y" to_schema="pizzeria" to_table="pedidos" >
+				<fk_column name="_id" pk="productos" />
+			</fk>
+		</table>
+		<table name="tiendas" >
+			<column name="_id" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="direccion" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="cp" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="localidad" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="provincia" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="empleados" type="array[object]" length="800" decimal="0" jt="4999545" mandatory="y" >
+				<column name="nombre" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="apellido" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="NIF" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="tel" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+				<column name="trabajo" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			</column>
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+			<fk name="Fk_tiendas_pedidos" virtual="y" to_schema="pizzeria" to_table="pedidos" >
+				<fk_column name="_id" pk="tienda_id" />
+			</fk>
+		</table>
+	</schema>
+	<connector name="MongoDb" database="MongoDb" driver_class="com.dbschema.MongoJdbcDriver" driver_jar="mongojdbc3.1.jar" driver_desc="No Authentication" host="localhost" port="27017" instance="pizzeria" user="admin" />
+	<layout name="Main Layout" id="Layout_49b" show_relation="name" >
+		<entity schema="pizzeria" name="clientes" color="3986C1" x="48" y="128" />
+		<entity schema="pizzeria" name="tiendas" column="empleados" color="3986C1" x="1152" y="64" />
+		<entity schema="pizzeria" name="pedidos" color="3986C1" x="240" y="128" />
+		<entity schema="pizzeria" name="pedidos" column="productos" color="3986C1" x="480" y="160" />
+		<entity schema="pizzeria" name="productos" color="3986C1" x="688" y="48" />
+		<entity schema="pizzeria" name="tiendas" color="3986C1" x="928" y="160" />
+	</layout>
+</project>

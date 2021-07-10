@@ -1,0 +1,23 @@
+[{
+  "_id": 1,
+  "direccion": "avenida diagonal 25",
+  "cp": "12456",
+  "localidad": "barcelona",
+  "provincia": "barcelona",
+  "empleados": [
+    {
+      "nombre": "pau",
+      "apellido": "dertu",
+      "NIF": "12365478L",
+      "tel": "123654987",
+      "trabajo": "cocinero"
+    },
+    {
+      "nombre": "maria",
+      "apellido": "larreta",
+      "NIF": "98765432W",
+      "tel": "654987999",
+      "trabajo": "repartidor"
+    }
+  ]
+}]

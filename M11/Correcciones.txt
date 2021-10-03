@@ -1,0 +1,35 @@
+Cambios realizados por Patricia:
+--------------------------------
+
+- FLORISTERIA -> En el enunciado indica que la floristería tiene que tener un nombre. 
+	Añado una variable "floristeriaName". 
+	Le asigno el valor que se le pasa por parámetro al constructor, y añado un getter para obtener el nombre de la floristería.
+	Uso el nombre en los menús para que no quede la variable sin usar.
+
+- DECORACION -> Los productos sólo pueden ser de madera o de plástico. 
+	El tipo de material lo convierto en un ENUM.
+ 
+- EXCEPCIONES> Personalizo las excepciones.
+	Creo las clases asociadas.
+
+- UI -> +menuRemove(): No funcionaba la opción 3 del else if. 
+	Sobra acento de "Decoracion". 
+
+- UI -> Todos los mensajes que tengan que ver con la vista, deberían ir en UI.
+	Creo un método (+mostrarMsg(String msg)) para mostrar mensajes por consola desde el modelo y desde el controlador.
+	Los mensajes de error sí los muestros con System.out.println porque son para el desarrollador (log).
+
+- UI -> +askCreateTicket(Floristeria floristeria): añado comentarios sobre qué botón corresponde a cada case.
+
+- UI -> +menuRemove(Floristeria floristeria): al seleccionar si quieres eliminar Arbol, Flor o Decoracion, permitía eliminar un ID de cualquier otro tipo de producto. 
+	Modifico el método +askProductRemove(Floristeria floristeria, String tipoProducto) de forma que si quieres eliminar un árbol, verifica que el ID introducido es realmente de un árbol.
+	Si intentas eliminar un ID perteneciente a flor, ahora ya no te deja (elimina solo los productos del mismo tipo en cada menú).
+
+- UI -> Al crear un ticket nuevo, podías comprar varias veces el mismo ID de producto (no lo eliminaba del stock, no informaba que el producto estaba comprado o fuera de stock).
+	En el ticket, sin embargo, te aparecía sólo una vez.
+	Lo corrijo de forma que al añadir un producto al ticket se elimine del stock y no lo puedas volver a seleccionar. 
+	Creo el método +comprobarIndexLista(Floristeria floristeria, int id) para buscar la posición en el array del producto a añadir en la lista productosTicket.
+	Le paso la lista prodcutosTicket con sólo los productos comprados al método +floristeriaControlador.createTicket(floristeria, productosTicket).
+	En el ticket aparece sólo lo comprado con el stock actualizado en cada momento.
+	
+ 

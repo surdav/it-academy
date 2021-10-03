@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.floristeria.modelo.dominio.Decoracion.Material;
 import com.floristeria.modelo.dominio.Floristeria;
 import com.floristeria.modelo.dominio.Producto;
 import com.floristeria.modelo.dominio.Ticket;
@@ -13,23 +14,23 @@ public class FloristeriaControlador {
 
 	private final TicketRepo ticketRepo = new TicketRepo();
 	
-	public Floristeria createFloristeria(String nomFloristeria) throws Exception {
+	public Floristeria createFloristeria(String nomFloristeria) throws NoContentException {
 		return new Floristeria(nomFloristeria);
 	}
 	
-	public void addArbol(Floristeria floristeria, String name, double height, double price) throws Exception {
+	public void addArbol(Floristeria floristeria, String name, double height, double price) throws NoContentException {
 		floristeria.addTree(name, height, price);
 	}
 	
-	public void addFlor(Floristeria floristeria, String name, String color, double price) throws Exception {
+	public void addFlor(Floristeria floristeria, String name, String color, double price) throws NoContentException {
 		floristeria.addFlower(name, color, price);
 	}
 	
-	public void addDecoracion(Floristeria floristeria, String name, String type, double price) throws Exception {
+	public void addDecoracion(Floristeria floristeria, String name, Material type, double price) throws NoContentException, WrongMaterialException {
 		floristeria.addDecoration(name, type, price);
 	}
 	
-	public void removerProducto(Floristeria floristeria, int id) throws Exception {
+	public void removerProducto(Floristeria floristeria, int id) throws NoContentException {
 		floristeria.removeProduct(id);
 	}
 	
@@ -45,25 +46,10 @@ public class FloristeriaControlador {
 		floristeria.totalStockValue();
 	}
 	
-	public void createTicket(Floristeria floristeria, HashSet<Integer> idsTicket) throws Exception {
-		
-		List<Producto> productosTicket  = floristeria.getAllProducts().stream()
-				.filter(prod -> idsTicket.stream()
-						.anyMatch(id -> prod.getId() == id))
-				.collect(Collectors.toList());
-		
+	public void createTicket(Floristeria floristeria, List<Producto> productosTicket) throws NoContentException {
 		Ticket ticket = new Ticket(productosTicket);
 		ticketRepo.addTicket(ticket);
 		ticket.printTicket();
-
-		for (Integer id : idsTicket) {
-			try {
-				floristeria.removeProduct(id);
-			} catch (Exception e) {
-				System.err.println("No se pudo retirar el producto");
-				System.err.println(e.getMessage());
-			}
-		}
 	}
 	
 	public void printAllTickets() {
@@ -87,5 +73,17 @@ public class FloristeriaControlador {
 				.map(Producto::getId)
 				.collect(Collectors.toList());
 		return productosIds.contains(id);
+	}
+	
+	public int comprobarIndexLista(Floristeria floristeria, int id) {
+		int indexLista = -1;
+		int i = 0;
+		for(Producto p: floristeria.getAllProducts()) {
+			if (floristeria.getAllProducts().get(i).getId() == id) {
+				indexLista = i;
+			}
+			i++;
+		}
+		return indexLista;
 	}
 }

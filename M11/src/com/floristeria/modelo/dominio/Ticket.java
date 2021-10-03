@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import com.floristeria.controlador.NoContentException;
+import com.floristeria.vista.UI;
+
 public class Ticket {
 
 	private final int id;
@@ -13,9 +16,11 @@ public class Ticket {
 	private final List<Producto> productList;
 	private final DateTimeFormatter format = DateTimeFormatter.ofPattern("'FECHA:' dd/MM/yyyy	'HORA:' HH:mm");
 
-	public Ticket(List<Producto> compra) throws Exception {
+	private UI ui = new UI();
+	
+	public Ticket(List<Producto> compra) throws NoContentException {
 		if (compra.isEmpty())
-			throw new Exception("Debe introducir al menos un producto para crear un ticket.");
+			throw new NoContentException("Debe introducir al menos un producto para crear un ticket.");
 		id = next_id++;
 		productList = compra;
 		totalValue = compra.stream().mapToDouble((Producto::getPrice)).sum();
@@ -33,7 +38,7 @@ public class Ticket {
 
 	public void printTicket() {
 
-		System.out.println(this);
+		ui.mostrarMsg(this.toString());
 		productList.forEach(System.out::println);
 	}
 

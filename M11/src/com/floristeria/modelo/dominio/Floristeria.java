@@ -3,39 +3,51 @@ package com.floristeria.modelo.dominio;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.floristeria.controlador.NoContentException;
+import com.floristeria.controlador.WrongMaterialException;
+import com.floristeria.modelo.dominio.Decoracion.Material;
 import com.floristeria.modelo.servicio.FloristeriaRepo;
+import com.floristeria.vista.UI;
 
 public class Floristeria {
 
+	private String floristeriaName;
 	private final FloristeriaRepo floristeriaRepo = new FloristeriaRepo();
+	private UI ui = new UI();
 	
-	public Floristeria(String name) throws Exception {
-		if (name.isBlank()) throw new Exception("Debe introducir un nombre para la tienda.");
+	public Floristeria(String name) throws NoContentException {
+		if (name.isBlank()) throw new NoContentException("Debe introducir un nombre para la tienda.");
+		
+		floristeriaName = name;
 	}
 
-	public void addTree(String name, double height, double price) throws Exception {
+	public String getFloristeriaName() {
+		return floristeriaName;
+	}
+
+	public void addTree(String name, double height, double price) throws NoContentException {
 
 		Arbol arbol = new Arbol(name, height, price);
 		floristeriaRepo.addProduct(arbol);
-		System.out.println("Árbol añadido correctamente.");
+		ui.mostrarMsg("Árbol añadido correctamente.");
 	}
 
-	public void addFlower(String name, String color, double price) throws Exception {
+	public void addFlower(String name, String color, double price) throws NoContentException {
 
 		Flor flor = new Flor(name, color, price);
 		floristeriaRepo.addProduct(flor);
-		System.out.println("Flor añadida correctamente.");
+		ui.mostrarMsg("Flor añadida correctamente.");
 
 	}
 
-	public void addDecoration(String name, String type, double price) throws Exception {
+	public void addDecoration(String name, Material type, double price) throws NoContentException, WrongMaterialException {
 
 		Decoracion decoracion = new Decoracion(name, type, price);
 		floristeriaRepo.addProduct(decoracion);
-		System.out.println("Decoración añadida correctamente.");
+		ui.mostrarMsg("Decoración añadida correctamente.");
 	}
 	
-	public void removeProduct(int id) throws Exception {
+	public void removeProduct(int id) throws NoContentException {
 		floristeriaRepo.removeProduct(id);
 	}
 	
@@ -53,6 +65,7 @@ public class Floristeria {
 				.collect(Collectors.toList());
 
 		// Imprime una lista para cada tipo encontrado
+		ui.mostrarMsg("----- Stock actualizado -----");
 		for (String s : productTypes) {
 			printStock(s);
 		}
@@ -70,17 +83,17 @@ public class Floristeria {
 		};
 
 		// Imprime el listado
-		System.out.println("TOTAL " + tipo + ": ");
+		ui.mostrarMsg("TOTAL " + tipo + ": ");
 		for (Producto p : floristeriaRepo.getAllProducts()) {
 			if (p.getClass().getSimpleName().equals(product)) {
-				System.out.println(p);
+				ui.mostrarMsg(p.toString());
 			}
 		}
 	}
 
 	public void totalStockValue() {
 		
-		System.out.println("VALOR TOTAL DEL STOCK: "+
+		ui.mostrarMsg("VALOR TOTAL DEL STOCK: "+
 		
 		floristeriaRepo.getAllProducts().stream()
 			.mapToDouble(Producto::getPrice)

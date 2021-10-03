@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "fb421632-a3cd-4afc-9d0b-21a4eb61ffe9",
+		"name": "M12-IniciacioSpring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restcountries.eu/rest/v2/lang/es",
+					"protocol": "https",
+					"host": [
+						"restcountries",
+						"eu"
+					],
+					"path": [
+						"rest",
+						"v2",
+						"lang",
+						"es"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get LocalRoot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ip}}{{port}}/",
+					"host": [
+						"{{ip}}{{port}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get LocalRoot with PathVariable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ip}}{{port}}/Suren",
+					"host": [
+						"{{ip}}{{port}}"
+					],
+					"path": [
+						"Suren"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

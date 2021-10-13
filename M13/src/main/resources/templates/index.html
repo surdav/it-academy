@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<meta charset="UTF-8">
+	<title>Spring - CRUD Empleados</title>
+
+	<!-- JQUERY -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+	<!-- Boostrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+	<!-- Boostrap custom colors -->
+	<link rel="stylesheet" type="text/css" href="custom_bootstrap.min.css">
+
+	<!--BootBox PopUp Eliminar Empleado-->
+	<script src=https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js></script>
+
+	<!--Custom Css-->
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="../static/index.css">
+	<!-- Data table -->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" />
+
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+	</link>
+</head>
+
+<body>
+	<div class="container">
+		<div class="main-section">
+			<div class="col-md-12">
+				<div class="row Header">
+					<div class="col-sm-8">
+						<H4 class="headertitle">CRUD Empleados</H4>
+						<h6>Ejercicio realizado utilizando: Spring API Rest, JavaScript, jQuery y Bootstrap.</h6>
+					</div>
+					<div class="col-sm-4 my-auto text-right">
+						<button type="button" class="btn btn-primary add" data-toggle="modal" data-target="#modal"
+							onclick="newEmployee();">
+							<i class="bi bi-person-plus-fill icon" style="margin-right: 5px;"></i>
+							Nuevo Empleado</button>
+					</div>
+				</div>
+				<div class="col-sm-12 tableBody">
+					<table id="employeeTable" class="table table-hover table-striped">
+						<thead>
+							<tr>
+								<th style="width:4%" id="id">#</th>
+								<th style="width:28%">Nombre</th>
+								<th style="width:28%">Cargo</th>
+								<th style="width:28%">Salario</th>
+								<th style="width:12%">Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<td>id</td>
+							<td>nombre</td>
+							<td>cargo</td>
+							<td>saldo</td>
+							<td><button type="button" class="btn btn-primary add" data-toggle="modal"
+									data-target="#modal" onclick="newEmployee();">
+									Nuevo Empleado</button></td>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="#modaltitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modaltitle"><span id="formType">Añadir nuevo</span> empleado
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="EmployeeForm">
+						<div>
+							<input type="text" id="idEmployee" hidden="true">
+						</div>
+						<div class="input-group mt-3 mb-3">
+							<div class="input-group-prepend w-25">
+								<span class="input-group-text w-100">Nombre</span>
+							</div>
+							<input class="form-control" type="text" id="name"
+								placeholder="Introduce el nombre del empleado.">
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend w-25">
+								<span class="input-group-text w-100">Cargo</span>
+							</div>
+							<select class="form-control" id="job">
+								<option value="Default">Elige un cargo</option>
+								<option value="Director_Proyectos">Director de proyectos</option>
+								<option value="Programador_Senior">Programador Senior</option>
+								<option value="Programador_Mid">Programador Mid-Level</option>
+								<option value="Programador_Junior">Programador Junior</option>
+								<option value="Administrativo">Administrativo</option>
+							</select>
+						</div>
+
+						<div class="modal-footer">
+							<button type="reset" class="btn  btn-secondary cancel"
+								data-dismiss="modal">Cancelar</button>
+							<input type="button" class="btn  btn-primary save" value="Añadir" id="action"
+								onclick="sendEmployee();">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+body{background-color: white;} 
+ 
+ body::after {
+    content: "";
+    background-color: white;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-size: cover;
+    z-index: -1;   
+}
+
+.main-section{
+    margin:auto;
+    margin-top: 2%;
+    background-color: white;
+    border-radius: 2%;
+}
+
+
+.Header{
+    display: flex;
+    padding: 2%;
+    color: white;
+    background-color: black;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.modal-header{
+    padding: 4%;
+    color: black;
+    background-color: white;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    
+}
+
+.headertitle{
+    margin: 0 auto;
+    color: white;
+    margin-top: 4px;
+}
+
+
+.tableBody{
+    padding: 2%;
+    color: white;
+}
+
+ table.dataTable td, table.dataTable th {color: blue;}
+
+.btn-table{
+    padding: 0.05rem 0.40rem !important;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.icon{
+    font-size: 19px;
+}
+
+.table thead th{
+    background-color: white;
+}
+
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: rgba(0, 0, 0, 0.10);
+}
+
+.table-striped tbody tr:nth-of-type(even){
+    background-color: white;
+}

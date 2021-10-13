@@ -1,0 +1,14 @@
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/persistence/PicturesRepository.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/domain/Picture.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/view/SplitException.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/service/ShopServices.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/controller/ShopsController.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/view/WebController.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/CrudPicturesApplication.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/exceptions/FullShopException.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/domain/Shop.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/controller/ControllerExceptions.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/controller/PicturesController.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/persistence/ShopsRepository.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/view/WebExepctions.java
+/Users/gerardpuig/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/service/PicturesService.java

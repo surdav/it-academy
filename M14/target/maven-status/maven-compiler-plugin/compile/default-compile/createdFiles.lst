@@ -1,0 +1,14 @@
+com/itacademy/CrudPictures/controller/ShopsController.class
+com/itacademy/CrudPictures/view/WebExepctions.class
+com/itacademy/CrudPictures/domain/Shop.class
+com/itacademy/CrudPictures/view/WebController.class
+com/itacademy/CrudPictures/controller/PicturesController.class
+com/itacademy/CrudPictures/exceptions/FullShopException.class
+com/itacademy/CrudPictures/domain/Picture.class
+com/itacademy/CrudPictures/service/PicturesService.class
+com/itacademy/CrudPictures/view/SplitException.class
+com/itacademy/CrudPictures/service/ShopServices.class
+com/itacademy/CrudPictures/persistence/PicturesRepository.class
+com/itacademy/CrudPictures/controller/ControllerExceptions.class
+com/itacademy/CrudPictures/persistence/ShopsRepository.class
+com/itacademy/CrudPictures/CrudPicturesApplication.class

@@ -1,0 +1,14 @@
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/persistence/PicturesRepository.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/domain/Picture.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/view/SplitException.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/service/ShopServices.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/controller/ShopsController.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/view/WebController.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/CrudPicturesApplication.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/exceptions/FullShopException.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/domain/Shop.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/controller/ControllerExceptions.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/controller/PicturesController.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/persistence/ShopsRepository.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/view/WebExepctions.java
+/Users/surendavidiants/eclipse-workspace/ITAcademy_Exercicis/M14-Spring-REST_API/src/main/java/com/itacademy/CrudPictures/service/PicturesService.java

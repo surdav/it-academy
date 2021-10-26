@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}">
+
+<div id="page" layout:fragment="content">
+    <div class="container">
+
+        <div class="row justify-content-center mt-5">
+            <!-- UnAuthenticated Welcome -->
+            <div class="col text-center my-5" sec:authorize="!isAuthenticated()">
+                <h1 class=" mb-4">Bienvenidos a la página de Juego de Dados</h1>
+            </div>
+
+            <!-- Authenticated Welcome -->
+            <div class="col text-center" sec:authorize="isAuthenticated()">
+                <h1 class="mb-4" th:text="'Bienvenidos ' +${player.name} + '.'"></h1>
+                <p>Acabas de entrar en tu espacio personal, las jugadas que<br>
+                    realices en este espacio, serán registradas en tu cuenta.<br><br>
+
+                    Puedes consultar el Ranking con todos los jugadores <br>
+                    y ver las estadísticas de los mejores jugadores.</p>
+            </div>
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3 mt-5 ">
+                <a type="button" class="btn btn-outline-success btn-lg w-100" th:href="@{'/dicegames'}">Jugar</a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- Common image -->
+            <div class=" col text-center my-5">
+                <img src="images/dados.jpeg">
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

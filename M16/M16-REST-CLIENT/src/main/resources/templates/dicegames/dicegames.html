@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/default}">
+
+<div id="page" layout:fragment="content">
+    <div class="container d-flex justify-content-center">
+        <div class="col-md-5">
+            <div class="row text-center mt-5 mb-2">
+                <h1>Elige un juego</h1>
+            </div>
+            <div class="mt-5 mb-5">
+                <a type="button" class="btn btn-outline-success btn-lg w-100"
+                th:href="@{'/dicegames/OneDiceGame'}">Juego de un dado</a>
+            </div>
+            <div class="mt-5 mb-5">
+                <a type="button" class="btn btn-outline-success btn-lg w-100" 
+                th:href="@{'/dicegames/TwoDiceGame'}">Juego de dos dados</a>
+            </div>
+            <div class="mt-5 mb-5">
+                <a type="button" class="btn btn-outline-success btn-lg w-100"
+                    th:href="@{'/dicegames/ThreeDiceGame'}">Juego de tres dados</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
